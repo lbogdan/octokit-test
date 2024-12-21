@@ -1,0 +1,22 @@
+name: Octokit Test
+description: Octokit Test Description
+author: Bogdan Luca
+
+inputs:
+  required_var:
+    description: A required variable
+    required: true
+  optional_var:
+    description: An optional variable
+    required: false
+
+outputs:
+  result:
+    description: Result output
+
+runs:
+  using: docker
+  image: docker://ghcr.io/lbogdan/octokit-test:v0.0.1
+  env:
+    INPUT_REQUIRED_VAR: ${{ inputs.required_var }}
+    INPUT_OPTIONAL_VAR: ${{ inputs.optional_var }}
